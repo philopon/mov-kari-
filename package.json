@@ -1,0 +1,53 @@
+{
+  "name": "mov",
+  "description": "molecular viewer",
+  "version": "0.1.0",
+  "author": "Hirotomo Moriwaki",
+  "build": {
+    "appId": "com.electron.mov",
+    "category": "your.app.category.type"
+  },
+  "main": "app/index.js",
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "eventemitter2": "^2.1.3",
+    "ngl": "^0.10.0-dev.3",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "react-split-pane": "^0.1.51"
+  },
+  "devDependencies": {
+    "@types/classnames": "0.0.31",
+    "@types/electron": "^1.4.24",
+    "@types/eventemitter2": "^0.14.31",
+    "@types/mocha": "^2.2.32",
+    "@types/power-assert": "^1.4.29",
+    "@types/react": "^0.14.41",
+    "@types/react-dom": "^0.14.18",
+    "@types/react-split-pane": "^0.1.4",
+    "@types/signals": "0.0.17",
+    "@types/three": "0.0.24",
+    "electron": "^1.4.4",
+    "electron-builder": "^7.14.2",
+    "font-awesome": "^4.6.3",
+    "material-colors": "^1.2.0",
+    "mocha": "^3.1.2",
+    "node-sass": "^3.10.1",
+    "normalize.css": "^5.0.0",
+    "npm-run-all": "^3.1.1",
+    "power-assert": "^1.4.1",
+    "pug-cli": "^1.0.0-alpha6",
+    "typescript": "^2.0.3"
+  },
+  "scripts": {
+    "start": "electron app",
+    "watch": "NODE_ENV=development run-p watch:*",
+    "watch:html": "npm run build:html -- -w",
+    "watch:js": "tsc -w",
+    "watch:css": "run-s build:css \"build:css -- -w\"",
+    "build": "NODE_ENV=production run-p build:*",
+    "build:html": "pug pug/index.pug -o app/client",
+    "build:js": "tsc",
+    "build:css": "node-sass scss/style.scss -o app/client"
+  }
+}

@@ -1,0 +1,113 @@
+$fa-font-path:        "../../node_modules/font-awesome/fonts";
+
+@import "./node_modules/normalize.css/normalize";
+@import "./node_modules/material-colors/dist/colors.scss";
+@import "./node_modules/font-awesome/scss/font-awesome";
+
+#app-box {
+    position: relative;
+}
+
+#stage > div {
+    width: 100%;
+    height: 100%;
+}
+
+#overlay {
+    position: absolute;
+    z-index: 10;
+    padding: 5px;
+    color: white;
+    font-family: Consolas, 'Courier New', Courier, Monaco, monospace;
+}
+
+#side-bar {
+    position: absolute;
+    background-color: $md-grey-800;
+    color: white;
+
+    & > * {
+        margin: 5px 0;
+    }
+}
+
+#side-pane {
+    box-sizing: border-box;
+    background-color: $md-grey-900;
+    width: 100%;
+    height: 100%;
+
+    & > .title {
+        color: $md-grey-300;
+        padding-right: 24px;
+
+        h1 {
+            padding: 6px 0 0 6px;
+            font-size: 1.2rem;
+            border-bottom: 1px solid $md-grey-300;
+            margin: 0;
+        }
+    }
+}
+
+#bottom-bar {
+    box-sizing: border-box;
+    position: absolute;
+    background-color: $md-deep-orange-900;
+    color: white;
+    padding: 0 5px;
+
+    & > .right {
+        display: flex;
+        flex-direction: row-reverse;
+    }
+}
+
+#bottom-pane {
+    box-sizing: border-box;
+    background-color: black;
+    border-top: solid $md-grey-700 1px;
+    width: 100%;
+    height: 100%;
+    color: white;
+    font-family: monospace;
+    overflow: scroll;
+}
+
+.Resizer {
+    z-index: 20;
+
+    &.horizontal {
+        height: 10px;
+        margin: -5px 0;
+        cursor: row-resize;
+
+        &.disabled {
+            height: 0px;
+            margin: 0px;
+            cursor: auto;
+        }
+    }
+
+    &.vertical {
+        width: 10px;
+        margin: 0 -5px;
+        color: $md-grey-800;
+        cursor: col-resize;
+
+        &.disabled {
+            width: 0px;
+            margin: 0px;
+            cursor: auto;
+        }
+    }
+
+}
+
+.SplitPane.horizontal.disabled > .Pane2 {
+    height: 0px !important;
+}
+
+.SplitPane.vertical.disabled > .Pane1 {
+    width: 0px !important;
+}
